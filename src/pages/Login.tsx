@@ -51,15 +51,22 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md glass-card">
+    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden flex items-center justify-center p-4">
+      {/* Glowing background gradients */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-[#8B5CF6] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      </div>
+
+      <Card className="w-full max-w-md bg-white/5 border-gray-700 text-white relative z-10">
         <CardHeader className="space-y-4 text-center">
-          <div className="mx-auto w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center">
+          <Link to="/" className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0EA5E9] to-[#8B5CF6] flex items-center justify-center">
             <Activity className="w-10 h-10 text-white" />
-          </div>
+          </Link>
           <div>
             <CardTitle className="text-3xl font-bold">Welcome Back</CardTitle>
-            <CardDescription className="text-base mt-2">
+            <CardDescription className="text-base text-gray-300 mt-2">
               Sign in to continue to EchoBody
             </CardDescription>
           </div>
@@ -67,7 +74,7 @@ const Login = () => {
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-gray-300">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -75,11 +82,11 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-11"
+                className="h-11 bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-gray-300">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -87,25 +94,53 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="h-11"
+                className="h-11 bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
               />
             </div>
             <Button
               type="submit"
-              className="w-full h-11 gradient-primary text-white font-medium"
+              className="w-full h-11 bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-medium"
               disabled={loading}
             >
               {loading ? "Signing in..." : "Login"}
             </Button>
           </form>
-          <p className="text-center text-sm text-muted-foreground mt-6">
+          <p className="text-center text-sm text-gray-400 mt-6">
             Don't have an account?{" "}
-            <Link to="/register" className="text-primary font-medium hover:underline">
+            <Link to="/register" className="text-[#0EA5E9] font-medium hover:underline">
               Sign up
             </Link>
           </p>
         </CardContent>
       </Card>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes animate-blob {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
+        }
+
+        .animate-blob {
+          animation: animate-blob 7s infinite ease-in-out;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </div>
   );
 };
