@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Menu, X, Heart, Utensils, Brain, Github, Twitter, Linkedin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFeaturesInView, setIsFeaturesInView] = useState(false);
 
@@ -101,6 +103,7 @@ const HomePage: React.FC = () => {
               className="relative px-6 py-2 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-semibold overflow-hidden group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/register')}
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               <span className="relative z-10">Get Started</span>
@@ -271,6 +274,7 @@ const HomePage: React.FC = () => {
                 className="relative px-8 py-3 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-bold text-lg flex items-center justify-center mx-auto md:mx-0 overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/sample-dashboard')}
               >
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 <span className="relative z-10">Learn More</span>
@@ -283,8 +287,22 @@ const HomePage: React.FC = () => {
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
               {/* Dashboard Mockup Placeholder */}
-              <div className="relative w-full h-64 md:h-96 bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center shadow-xl backdrop-blur-sm transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                <p className="text-gray-300 text-lg font-semibold">Dashboard Mockup (Placeholder)</p>
+              <div className="relative w-full h-64 md:h-96 bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center shadow-xl backdrop-blur-sm transform rotate-3 hover:rotate-0 transition-transform duration-500 overflow-hidden">
+                <svg width="100%" height="100%" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full object-cover rounded-xl">
+                  <rect width="800" height="600" rx="12" fill="#0F172A"/>
+                  <rect x="20" y="20" width="760" height="560" rx="8" fill="#1E293B"/>
+                  <path d="M50 400 L150 300 L250 350 L350 250 L450 300 L550 200 L650 280 L750 220" stroke="#0EA5E9" strokeWidth="8" strokeLinecap="round"/>
+                  <circle cx="50" cy="400" r="15" fill="#8B5CF6"/>
+                  <circle cx="150" cy="300" r="15" fill="#8B5CF6"/>
+                  <circle cx="250" cy="350" r="15" fill="#8B5CF6"/>
+                  <circle cx="350" cy="250" r="15" fill="#8B5CF6"/>
+                  <circle cx="450" cy="300" r="15" fill="#8B5CF6"/>
+                  <circle cx="550" cy="200" r="15" fill="#8B5CF6"/>
+                  <circle cx="650" cy="280" r="15" fill="#8B5CF6"/>
+                  <circle cx="750" cy="220" r="15" fill="#8B5CF6"/>
+                  <text x="400" y="500" textAnchor="middle" fill="#E2E8F0" fontSize="40" fontFamily="sans-serif">Fitness Dashboard</text>
+                  <text x="400" y="540" textAnchor="middle" fill="#94A3B8" fontSize="24" fontFamily="sans-serif">Progress at a Glance</text>
+                </svg>
                 <div className="absolute inset-0 rounded-xl pointer-events-none" style={{
                   background: 'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1), transparent 70%)',
                   animation: 'pulse-glow 4s infinite alternate'
@@ -316,6 +334,7 @@ const HomePage: React.FC = () => {
             transition={{ delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/register')}
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
             <span className="relative z-10">Join Now</span>

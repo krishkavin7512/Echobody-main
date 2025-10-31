@@ -1,12 +1,16 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Menu, X } from 'lucide-react';
 
 const Pricing: React.FC = () => {
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } },
-  };
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { name: 'Features', href: '/#features' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'About', href: '/about' },
+  ];
 
   const slideInUp = {
     hidden: { y: 50, opacity: 0 },
@@ -16,20 +20,20 @@ const Pricing: React.FC = () => {
   const pricingPlans = [
     {
       name: 'Basic',
-      price: '$9',
-      frequency: '/ month',
+      price: 'Free',
+      frequency: '',
       features: [
         'Track Workouts',
         'Basic Nutrition Logging',
         'Echo Score (Daily)',
         'Community Access',
       ],
-      buttonText: 'Start Free Trial',
+      buttonText: 'Get Started',
       accentColor: 'from-gray-600 to-gray-500',
     },
     {
       name: 'Pro',
-      price: '$19',
+      price: '₹79',
       frequency: '/ month',
       features: [
         'All Basic Features',
@@ -44,7 +48,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: 'Premium',
-      price: '$29',
+      price: '₹199',
       frequency: '/ month',
       features: [
         'All Pro Features',
@@ -59,7 +63,7 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden py-20">
+    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden">
       {/* Glowing background gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -67,7 +71,85 @@ const Pricing: React.FC = () => {
         <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 text-center">
+      {/* Navbar */}
+      <motion.nav
+        className="sticky top-0 z-50 w-full bg-[#0F172A]/80 backdrop-blur-md py-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center">
+            <img src="/placeholder.svg" alt="EchoBody Logo" className="h-8 mr-2" />
+            <span className="text-2xl font-bold text-white">EchoBody</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-gray-300 hover:text-[#0EA5E9] transition-colors duration-300 ${
+                  link.name === 'Pricing' ? 'text-[#0EA5E9]' : ''
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a href="/login" className="text-gray-300 hover:text-[#0EA5E9] transition-colors duration-300">
+              Login
+            </a>
+            <motion.button
+              className="relative px-6 py-2 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-semibold overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="relative z-10">Get Started</span>
+            </motion.button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white focus:outline-none">
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            className="md:hidden absolute top-full left-0 w-full bg-[#0F172A] bg-opacity-95 z-20 flex flex-col items-center py-4 space-y-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-gray-300 hover:text-[#0EA5E9] transition-colors duration-300 text-lg ${
+                  link.name === 'Pricing' ? 'text-[#0EA5E9]' : ''
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a href="/login" className="text-gray-300 hover:text-[#0EA5E9] transition-colors duration-300 text-lg">
+              Login
+            </a>
+            <motion.button
+              className="px-6 py-2 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-semibold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.button>
+          </motion.div>
+        )}
+      </motion.nav>
+
+      <main className="relative z-10 container mx-auto px-6 text-center py-20">
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold leading-tight text-white mb-6 drop-shadow-lg"
           variants={slideInUp}
@@ -90,7 +172,9 @@ const Pricing: React.FC = () => {
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              className={`relative bg-white/5 border border-gray-700 rounded-xl p-8 flex flex-col items-center text-center overflow-hidden transform transition-all duration-300 hover:scale-105 ${plan.isPopular ? 'border-[#0EA5E9] shadow-lg shadow-[#0EA5E9]/20' : ''}`}
+              className={`relative bg-white/5 border border-gray-700 rounded-xl p-8 flex flex-col items-center text-center overflow-hidden transform transition-all duration-300 hover:scale-105 ${
+                plan.isPopular ? 'border-[#0EA5E9] shadow-lg shadow-[#0EA5E9]/20' : ''
+              }`}
               variants={slideInUp}
               initial="hidden"
               animate="visible"
@@ -119,13 +203,15 @@ const Pricing: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className={`absolute inset-0 w-full h-full bg-gradient-to-r ${plan.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></span>
+                <span
+                  className={`absolute inset-0 w-full h-full bg-gradient-to-r ${plan.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                ></span>
                 <span className="relative z-10">{plan.buttonText}</span>
               </motion.button>
             </motion.div>
           ))}
         </div>
-      </div>
+      </main>
 
       {/* Custom CSS for animations */}
       <style jsx>{`
