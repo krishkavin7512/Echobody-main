@@ -15,39 +15,17 @@ const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
-    try {
-      // Mock API call - replace with actual API
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      }).catch(() => {
-        // Mock response for demo
-        return {
-          ok: true,
-          json: async () => ({
-            token: "mock-jwt-token",
-            user: { id: "1", name: "Demo User", email },
-          }),
-        };
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        toast.success("Welcome back!");
-        navigate("/dashboard");
-      } else {
-        toast.error("Invalid credentials");
-      }
-    } catch (error) {
-      toast.error("Login failed. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // Bypass backend authentication for demonstration
+    const dummyUser = {
+      id: "dummy-user-id",
+      name: email.split('@')[0] || "Dummy User", // Use email prefix as name
+      email: email,
+    };
+    localStorage.setItem("token", "dummy-token");
+    localStorage.setItem("user", JSON.stringify(dummyUser));
+    toast.success(`Welcome back, ${dummyUser.name}!`);
+    navigate("/sample-dashboard");
   };
 
   return (

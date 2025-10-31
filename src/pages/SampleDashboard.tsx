@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,6 +8,23 @@ import { Dumbbell, Flame, Zap, ArrowLeft, Target, Trophy, Lightbulb, User, Calen
 
 const SampleDashboard: React.FC = () => {
   const navigate = useNavigate();
+  const [userName, setUserName] = useState<string>("Prarthana");
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      try {
+        const parsedUser = JSON.parse(user);
+        if (parsedUser.name) {
+          setUserName(parsedUser.name);
+        } else if (parsedUser.email) {
+          setUserName(parsedUser.email.split('@')[0]); // Use email prefix if name not available
+        }
+      } catch (error) {
+        console.error("Failed to parse user data from localStorage", error);
+      }
+    }
+  }, []);
   const slideInUp = {
     hidden: { y: 50, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
@@ -65,7 +82,7 @@ const SampleDashboard: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          Welcome back, Demo User 👋
+          Welcome back, {userName} 👋
         </motion.h1>
 
         {/* User Profile / Quick Actions */}
