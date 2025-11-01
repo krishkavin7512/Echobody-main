@@ -40,7 +40,7 @@ export const Register = () => {
     try {
       const { confirmPassword, ...registerData } = formData;
       
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -49,12 +49,6 @@ export const Register = () => {
           height_cm: parseInt(registerData.height_cm),
           weight_kg: parseInt(registerData.weight_kg),
         }),
-      }).catch(() => {
-        // Mock response for demo
-        return {
-          ok: true,
-          json: async () => ({ message: "Registration successful" }),
-        };
       });
 
       if (response.ok) {
@@ -224,7 +218,7 @@ export const Register = () => {
       </Card>
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes animate-blob {
           0% {
             transform: translate(0, 0) scale(1);

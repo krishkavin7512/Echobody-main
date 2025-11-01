@@ -15,17 +15,29 @@ export const Login = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
-    // Bypass backend authentication for demonstration
-    const dummyUser = {
-      id: "dummy-user-id",
-      name: email.split('@')[0] || "Dummy User", // Use email prefix as name
-      email: email,
-    };
-    localStorage.setItem("token", "dummy-token");
-    localStorage.setItem("user", JSON.stringify(dummyUser));
-    toast.success(`Welcome back, ${dummyUser.name}!`);
-    navigate("/sample-dashboard");
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("token", data.token);
+        toast.success("Login successful!");
+        navigate("/sample-dashboard");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message || "Invalid credentials. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
