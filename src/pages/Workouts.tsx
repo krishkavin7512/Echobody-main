@@ -65,7 +65,7 @@ const Workouts = () => {
           </div>
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button className="gradient-primary text-white gap-2">
+              <Button className="bg-primary text-primary-foreground gap-2 holographic-sheen">
                 <Plus className="w-4 h-4" />
                 Log New Workout
               </Button>
@@ -122,7 +122,7 @@ const Workouts = () => {
                     <Input type="number" placeholder="250" min="0" />
                   </div>
                 </div>
-                <Button type="submit" className="w-full gradient-primary text-white">
+                <Button type="submit" className="w-full bg-primary text-primary-foreground holographic-sheen">
                   Save Workout
                 </Button>
               </form>

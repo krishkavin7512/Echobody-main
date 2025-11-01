@@ -15,9 +15,9 @@ const Dashboard = () => {
 
   const quickStats = [
     { label: "Workouts This Week", value: "5", icon: Dumbbell, color: "text-primary" },
-    { label: "Energy Level", value: "8/10", icon: Zap, color: "text-secondary" },
-    { label: "Calories Today", value: "1,850", icon: Flame, color: "text-accent" },
-    { label: "Current Streak", value: "7 days", icon: Award, color: "text-secondary" },
+    { label: "Energy Level", value: "8/10", icon: Zap, color: "text-primary" },
+    { label: "Calories Today", value: "1,850", icon: Flame, color: "text-primary" },
+    { label: "Current Streak", value: "7 days", icon: Award, color: "text-primary" },
   ];
 
   const insights = [
@@ -27,9 +27,9 @@ const Dashboard = () => {
   ];
 
   const getScoreColor = (score: number) => {
-    if (score >= 80) return "text-secondary";
-    if (score >= 60) return "text-yellow-500";
-    if (score >= 40) return "text-orange-500";
+    if (score >= 80) return "text-primary";
+    if (score >= 60) return "text-primary";
+    if (score >= 40) return "text-primary";
     return "text-destructive";
   };
 
@@ -88,7 +88,7 @@ const Dashboard = () => {
                 ))}
               </div>
               <div className="text-center text-sm">
-                <span className="text-secondary font-medium">↑ 5% from last week</span>
+                <span className="text-primary font-medium">↑ 5% from last week</span>
               </div>
             </CardContent>
           </Card>
@@ -99,15 +99,15 @@ const Dashboard = () => {
               <CardTitle className="text-xl">Quick Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <Button className="w-full justify-start gap-3 h-12 gradient-primary text-white">
+              <Button className="w-full justify-start gap-3 h-12 bg-primary text-primary-foreground holographic-sheen">
                 <Dumbbell className="w-5 h-5" />
                 Log Workout
               </Button>
-              <Button className="w-full justify-start gap-3 h-12 gradient-secondary text-white">
+              <Button className="w-full justify-start gap-3 h-12 bg-primary text-primary-foreground holographic-sheen">
                 <Utensils className="w-5 h-5" />
                 Log Meal
               </Button>
-              <Button className="w-full justify-start gap-3 h-12 gradient-accent text-white">
+              <Button className="w-full justify-start gap-3 h-12 bg-primary text-primary-foreground holographic-sheen">
                 <Heart className="w-5 h-5" />
                 Log Mood
               </Button>

@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Activity } from "lucide-react";
 import { toast } from "sonner";
 
-const Register = () => {
+export const Register = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -71,22 +71,22 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden flex items-center justify-center p-4">
       {/* Glowing background gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-[#8B5CF6] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
-      <Card className="w-full max-w-2xl bg-white/5 border-gray-700 text-white relative z-10 my-8">
+      <Card className="w-full max-w-2xl bg-card border-border text-foreground relative z-10 my-8">
         <CardHeader className="space-y-4 text-center">
-          <Link to="/" className="mx-auto w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0EA5E9] to-[#8B5CF6] flex items-center justify-center">
-            <Activity className="w-10 h-10 text-white" />
+          <Link to="/" className="mx-auto w-16 h-16 rounded-2xl bg-primary flex items-center justify-center">
+            <Activity className="w-10 h-10 text-foreground" />
           </Link>
           <div>
             <CardTitle className="text-3xl font-bold">Create Account</CardTitle>
-            <CardDescription className="text-base text-gray-300 mt-2">
+            <CardDescription className="text-base text-muted-foreground mt-2">
               Join EchoBody and start your wellness journey
             </CardDescription>
           </div>
@@ -95,18 +95,18 @@ const Register = () => {
           <form onSubmit={handleRegister} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-gray-300">Full Name</Label>
+                <Label htmlFor="name" className="text-muted-foreground">Full Name</Label>
                 <Input
                   id="name"
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-300">Email</Label>
+                <Label htmlFor="email" className="text-muted-foreground">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -114,11 +114,11 @@ const Register = () => {
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-gray-300">Password</Label>
+                <Label htmlFor="password" className="text-muted-foreground">Password</Label>
                 <Input
                   id="password"
                   type="password"
@@ -126,11 +126,11 @@ const Register = () => {
                   value={formData.password}
                   onChange={(e) => handleChange("password", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword" className="text-gray-300">Confirm Password</Label>
+                <Label htmlFor="confirmPassword" className="text-muted-foreground">Confirm Password</Label>
                 <Input
                   id="confirmPassword"
                   type="password"
@@ -138,11 +138,11 @@ const Register = () => {
                   value={formData.confirmPassword}
                   onChange={(e) => handleChange("confirmPassword", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="age" className="text-gray-300">Age</Label>
+                <Label htmlFor="age" className="text-muted-foreground">Age</Label>
                 <Input
                   id="age"
                   type="number"
@@ -152,16 +152,16 @@ const Register = () => {
                   value={formData.age}
                   onChange={(e) => handleChange("age", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="gender" className="text-gray-300">Gender</Label>
+                <Label htmlFor="gender" className="text-muted-foreground">Gender</Label>
                 <Select onValueChange={(value) => handleChange("gender", value)} required>
-                  <SelectTrigger className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]">
+                  <SelectTrigger className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary">
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#0F172A] border-gray-600 text-white">
+                  <SelectContent className="bg-background border-border text-foreground">
                     <SelectItem value="Male">Male</SelectItem>
                     <SelectItem value="Female">Female</SelectItem>
                     <SelectItem value="Other">Other</SelectItem>
@@ -169,7 +169,7 @@ const Register = () => {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="height" className="text-gray-300">Height (cm)</Label>
+                <Label htmlFor="height" className="text-muted-foreground">Height (cm)</Label>
                 <Input
                   id="height"
                   type="number"
@@ -177,11 +177,11 @@ const Register = () => {
                   value={formData.height_cm}
                   onChange={(e) => handleChange("height_cm", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="weight" className="text-gray-300">Weight (kg)</Label>
+                <Label htmlFor="weight" className="text-muted-foreground">Weight (kg)</Label>
                 <Input
                   id="weight"
                   type="number"
@@ -189,16 +189,16 @@ const Register = () => {
                   value={formData.weight_kg}
                   onChange={(e) => handleChange("weight_kg", e.target.value)}
                   required
-                  className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                 />
               </div>
               <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="goal" className="text-gray-300">Goal</Label>
+                <Label htmlFor="goal" className="text-muted-foreground">Goal</Label>
                 <Select onValueChange={(value) => handleChange("goal", value)} required>
-                  <SelectTrigger className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]">
+                  <SelectTrigger className="bg-card border-border text-foreground placeholder:text-muted-foreground focus:border-primary">
                     <SelectValue placeholder="Select your goal" />
                   </SelectTrigger>
-                  <SelectContent className="bg-[#0F172A] border-gray-600 text-white">
+                  <SelectContent className="bg-background border-border text-foreground">
                     <SelectItem value="Lose Weight">Lose Weight</SelectItem>
                     <SelectItem value="Maintain Weight">Maintain Weight</SelectItem>
                     <SelectItem value="Gain Weight">Gain Weight</SelectItem>
@@ -208,15 +208,15 @@ const Register = () => {
             </div>
             <Button
               type="submit"
-              className="w-full h-11 bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white font-medium mt-6"
+              className="w-full h-11 bg-primary text-foreground font-medium mt-6"
               disabled={loading}
             >
               {loading ? "Creating Account..." : "Create Account"}
             </Button>
           </form>
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-sm text-muted-foreground mt-6">
             Already have an account?{" "}
-            <Link to="/login" className="text-[#0EA5E9] font-medium hover:underline">
+            <Link to="/login" className="text-primary font-medium hover:underline">
               Login
             </Link>
           </p>
@@ -254,4 +254,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+
