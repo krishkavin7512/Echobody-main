@@ -59,7 +59,7 @@ const Nutrition = () => {
           </div>
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button className="gradient-primary text-white gap-2">
+              <Button className="bg-primary text-primary-foreground gap-2 holographic-sheen">
                 <Plus className="w-4 h-4" />
                 Log Meal
               </Button>
@@ -113,7 +113,7 @@ const Nutrition = () => {
                     <Input type="number" placeholder="18" />
                   </div>
                 </div>
-                <Button type="submit" className="w-full gradient-primary text-white">
+                <Button type="submit" className="w-full bg-primary text-primary-foreground holographic-sheen">
                   Save Meal
                 </Button>
               </form>

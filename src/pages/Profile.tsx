@@ -29,14 +29,14 @@ const Profile = () => {
           <CardContent className="pt-6">
             <div className="flex items-center gap-6">
               <Avatar className="w-24 h-24">
-                <AvatarFallback className="text-3xl bg-gradient-primary text-white">
+                <AvatarFallback className="text-3xl bg-primary text-primary-foreground">
                   {user.name?.charAt(0) || "U"}
                 </AvatarFallback>
               </Avatar>
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-1">{user.name}</h3>
                 <p className="text-muted-foreground mb-4">{user.email}</p>
-                <Button className="gradient-primary text-white">Edit Profile</Button>
+                <Button className="bg-primary text-primary-foreground holographic-sheen">Edit Profile</Button>
               </div>
             </div>
           </CardContent>

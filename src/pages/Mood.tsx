@@ -39,7 +39,7 @@ const Mood = () => {
   return (
     <Layout title="Mood & Energy">
       <div className="space-y-6">
-        <Card className="glass-card">
+        <Card className="bg-card border-border">
           <CardHeader>
             <CardTitle>Log Today's Mood</CardTitle>
           </CardHeader>
@@ -96,14 +96,14 @@ const Mood = () => {
               />
             </div>
 
-            <Button onClick={handleSubmit} className="w-full gradient-primary text-white">
+            <Button onClick={handleSubmit} className="w-full bg-primary text-primary-foreground holographic-sheen">
               Save Entry
             </Button>
           </CardContent>
         </Card>
 
         {/* History */}
-        <Card className="glass-card">
+        <Card className="bg-card border-border">
           <CardHeader>
             <CardTitle>Mood History</CardTitle>
           </CardHeader>
@@ -139,3 +139,4 @@ const Mood = () => {
 };
 
 export default Mood;
+

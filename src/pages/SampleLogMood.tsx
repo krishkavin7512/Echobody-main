@@ -56,18 +56,18 @@ const SampleLogMood: React.FC = () => {
   const moodLabels = ["Terrible", "Bad", "Neutral", "Good", "Great"];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden p-8">
+    <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden p-8">
       {/* Glowing background gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-[#8B5CF6] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <Button
           variant="outline"
-          className="bg-transparent text-white border-gray-600 hover:bg-white/10 hover:text-white mb-8"
+          className="bg-transparent text-foreground border-border hover:bg-white/10 hover:text-foreground mb-8"
           onClick={() => navigate(-1)} // Go back to the previous page (dashboard)
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
@@ -83,26 +83,26 @@ const SampleLogMood: React.FC = () => {
         </motion.h1>
 
         <motion.div variants={slideInUp} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
-          <Card className="bg-white/5 border-gray-700 h-full">
+          <Card className="bg-white/5 border-border h-full">
             <CardHeader>
-              <CardTitle className="text-white">Mood Details</CardTitle>
+              <CardTitle className="text-foreground">Mood Details</CardTitle>
             </CardHeader>
-            <CardContent className="text-gray-300">
+            <CardContent className="text-muted-foreground">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="moodDate" className="text-gray-300">Date</Label>
+                    <Label htmlFor="moodDate" className="text-muted-foreground">Date</Label>
                     <Input
                       id="moodDate"
                       type="date"
                       value={moodDate}
                       onChange={(e) => setMoodDate(e.target.value)}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                      className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="moodLevel" className="text-gray-300">Mood Level: {moodLabels[moodLevel[0] - 1]}</Label>
+                    <Label htmlFor="moodLevel" className="text-muted-foreground">Mood Level: {moodLabels[moodLevel[0] - 1]}</Label>
                     <Slider
                       id="moodLevel"
                       min={1}
@@ -110,10 +110,10 @@ const SampleLogMood: React.FC = () => {
                       step={1}
                       value={moodLevel}
                       onValueChange={setMoodLevel}
-                      className="[&>span:first-child]:bg-white/10 [&>span:first-child]:border-gray-600 [&>span:first-child]:focus:ring-[#0EA5E9]"
-                      thumbClassName="[&>span]:bg-gradient-to-r [&>span]:from-[#0EA5E9] [&>span]:to-[#8B5CF6]"
+                      className="[&>span:first-child]:bg-white/10 [&>span:first-child]:border-border [&>span:first-child]:focus:ring-primary"
+                      thumbClassName="[&>span]:bg-gradient-to-r [&>span]:from-primary [&>span]:to-secondary"
                     />
-                    <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
                       <span>1 (Terrible)</span>
                       <span>5 (Great)</span>
                     </div>
@@ -121,7 +121,7 @@ const SampleLogMood: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Factors Influencing Mood</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Factors Influencing Mood</h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {[ "Sleep", "Stress", "Exercise", "Nutrition", "Work", "Social" ].map((factor) => (
                       <div key={factor} className="flex items-center space-x-2">
@@ -129,31 +129,31 @@ const SampleLogMood: React.FC = () => {
                           id={factor}
                           checked={moodFactors.includes(factor)}
                           onCheckedChange={(checked) => handleFactorChange(factor, checked as boolean)}
-                          className="border-gray-600 data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-[#0EA5E9] data-[state=checked]:to-[#8B5CF6] data-[state=checked]:text-white"
+                          className="border-border data-[state=checked]:bg-gradient-to-r data-[state=checked]:from-primary data-[state=checked]:to-secondary data-[state=checked]:text-foreground"
                         />
-                        <Label htmlFor={factor} className="text-gray-300">{factor}</Label>
+                        <Label htmlFor={factor} className="text-muted-foreground">{factor}</Label>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="moodNotes" className="text-gray-300">Mood Notes</Label>
+                  <Label htmlFor="moodNotes" className="text-muted-foreground">Mood Notes</Label>
                   <Textarea
                     id="moodNotes"
                     value={moodNotes}
                     onChange={(e) => setMoodNotes(e.target.value)}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                    className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                     placeholder="Any additional thoughts or feelings..."
                     rows={4}
                   />
                 </div>
 
                 <div className="flex gap-4">
-                  <Button type="submit" className="flex-grow bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white">
+                  <Button type="submit" className="flex-grow bg-gradient-to-r from-primary to-secondary text-foreground">
                     Save Mood
                   </Button>
-                  <Button type="button" variant="outline" className="flex-grow bg-transparent text-white border-gray-600 hover:bg-white/10 hover:text-white" onClick={handleClearForm}>
+                  <Button type="button" variant="outline" className="flex-grow bg-transparent text-foreground border-border hover:bg-white/10 hover:text-foreground" onClick={handleClearForm}>
                     <RotateCcw className="mr-2 h-4 w-4" /> Clear Form
                   </Button>
                 </div>

@@ -67,18 +67,18 @@ const SampleLogMeal: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white font-sans relative overflow-hidden p-8">
+    <div className="min-h-screen bg-background text-foreground font-sans relative overflow-hidden p-8">
       {/* Glowing background gradients */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-[#8B5CF6] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-[#0EA5E9] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-20%] left-[-20%] w-[600px] h-[600px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-[40%] right-[-20%] w-[700px] h-[700px] bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-20%] left-[30%] w-[500px] h-[500px] bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <Button
           variant="outline"
-          className="bg-transparent text-white border-gray-600 hover:bg-white/10 hover:text-white mb-8"
+          className="bg-transparent text-foreground border-border hover:bg-white/10 hover:text-foreground mb-8"
           onClick={() => navigate(-1)} // Go back to the previous page (dashboard)
         >
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Dashboard
@@ -94,31 +94,31 @@ const SampleLogMeal: React.FC = () => {
         </motion.h1>
 
         <motion.div variants={slideInUp} initial="hidden" animate="visible" transition={{ delay: 0.2 }}>
-          <Card className="bg-white/5 border-gray-700 h-full">
+          <Card className="bg-white/5 border-border h-full">
             <CardHeader>
-              <CardTitle className="text-white">Meal Details</CardTitle>
+              <CardTitle className="text-foreground">Meal Details</CardTitle>
             </CardHeader>
-            <CardContent className="text-gray-300">
+            <CardContent className="text-muted-foreground">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="mealDate" className="text-gray-300">Date</Label>
+                    <Label htmlFor="mealDate" className="text-muted-foreground">Date</Label>
                     <Input
                       id="mealDate"
                       type="date"
                       value={mealDate}
                       onChange={(e) => setMealDate(e.target.value)}
-                      className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                      className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="mealType" className="text-gray-300">Meal Type</Label>
+                    <Label htmlFor="mealType" className="text-muted-foreground">Meal Type</Label>
                     <Select onValueChange={setMealType} value={mealType} required>
-                      <SelectTrigger className="bg-white/10 border-gray-600 text-white focus:border-[#0EA5E9]">
+                      <SelectTrigger className="bg-white/10 border-border text-foreground focus:border-primary">
                         <SelectValue placeholder="Select type" />
                       </SelectTrigger>
-                      <SelectContent className="bg-[#0F172A] border-gray-600 text-white">
+                      <SelectContent className="bg-background border-border text-foreground">
                         <SelectItem value="breakfast">Breakfast</SelectItem>
                         <SelectItem value="lunch">Lunch</SelectItem>
                         <SelectItem value="dinner">Dinner</SelectItem>
@@ -129,42 +129,42 @@ const SampleLogMeal: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-4">Food Items</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Food Items</h3>
                   <div className="space-y-4">
                     {foodItems.map((item, index) => (
-                      <div key={index} className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end p-4 border border-gray-700 rounded-md bg-white/5">
+                      <div key={index} className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end p-4 border-border rounded-md bg-white/5">
                         <div className="space-y-2 md:col-span-2">
-                          <Label htmlFor={`food-name-${index}`} className="text-gray-300">Food Name</Label>
+                          <Label htmlFor={`food-name-${index}`} className="text-muted-foreground">Food Name</Label>
                           <Input
                             id={`food-name-${index}`}
                             type="text"
                             value={item.name}
                             onChange={(e) => handleFoodItemChange(index, 'name', e.target.value)}
-                            className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                            className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                             placeholder="Chicken Breast"
                             required
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor={`quantity-${index}`} className="text-gray-300">Quantity</Label>
+                          <Label htmlFor={`quantity-${index}`} className="text-muted-foreground">Quantity</Label>
                           <Input
                             id={`quantity-${index}`}
                             type="text"
                             value={item.quantity}
                             onChange={(e) => handleFoodItemChange(index, 'quantity', e.target.value)}
-                            className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                            className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                             placeholder="150g"
                             required
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor={`calories-${index}`} className="text-gray-300">Calories</Label>
+                          <Label htmlFor={`calories-${index}`} className="text-muted-foreground">Calories</Label>
                           <Input
                             id={`calories-${index}`}
                             type="number"
                             value={item.calories}
                             onChange={(e) => handleFoodItemChange(index, 'calories', Number(e.target.value))}
-                            className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                            className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                             min="0"
                             required
                           />
@@ -179,28 +179,28 @@ const SampleLogMeal: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <Button type="button" variant="outline" className="mt-4 bg-transparent text-white border-gray-600 hover:bg-white/10 hover:text-white" onClick={addFoodItem}>
+                  <Button type="button" variant="outline" className="mt-4 bg-transparent text-foreground border-border hover:bg-white/10 hover:text-foreground" onClick={addFoodItem}>
                     <PlusCircle className="mr-2 h-4 w-4" /> Add Food Item
                   </Button>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="mealNotes" className="text-gray-300">Meal Notes</Label>
+                  <Label htmlFor="mealNotes" className="text-muted-foreground">Meal Notes</Label>
                   <Textarea
                     id="mealNotes"
                     value={mealNotes}
                     onChange={(e) => setMealNotes(e.target.value)}
-                    className="bg-white/10 border-gray-600 text-white placeholder:text-gray-400 focus:border-[#0EA5E9]"
+                    className="bg-white/10 border-border text-foreground placeholder:text-muted-foreground focus:border-primary"
                     placeholder="Any additional notes about your meal..."
                     rows={4}
                   />
                 </div>
 
                 <div className="flex gap-4">
-                  <Button type="submit" className="flex-grow bg-gradient-to-r from-[#0EA5E9] to-[#8B5CF6] text-white">
+                  <Button type="submit" className="flex-grow bg-gradient-to-r from-primary to-secondary text-foreground">
                     Save Meal
                   </Button>
-                  <Button type="button" variant="outline" className="flex-grow bg-transparent text-white border-gray-600 hover:bg-white/10 hover:text-white" onClick={handleClearForm}>
+                  <Button type="button" variant="outline" className="flex-grow bg-transparent text-foreground border-border hover:bg-white/10 hover:text-foreground" onClick={handleClearForm}>
                     <RotateCcw className="mr-2 h-4 w-4" /> Clear Form
                   </Button>
                 </div>

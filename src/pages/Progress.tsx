@@ -5,8 +5,8 @@ import Layout from "@/components/Layout";
 const Progress = () => {
   const stats = [
     { label: "Total Workouts", value: "156", icon: Trophy, color: "text-primary" },
-    { label: "Total Calories Burned", value: "42,500", icon: Flame, color: "text-accent" },
-    { label: "Longest Streak", value: "14 days", icon: Award, color: "text-secondary" },
+    { label: "Total Calories Burned", value: "42,500", icon: Flame, color: "text-primary" },
+    { label: "Longest Streak", value: "14 days", icon: Award, color: "text-primary" },
     { label: "Average Echo Score", value: "78", icon: Target, color: "text-primary" },
   ];
 
