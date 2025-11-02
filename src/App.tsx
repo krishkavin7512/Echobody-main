@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Login } from "./pages/Login";
+import { LoginV2 } from "./pages/LoginV2";
 import { Register } from "./pages/Register";
 import DashboardV2 from "./pages/DashboardV2"; // Import DashboardV2
 import WorkoutsV2 from "./pages/WorkoutsV2";
@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/home" element={<HomePage />} /> {/* Add /home route */}
           <Route path="/pricing" element={<Pricing />} /> {/* Add Pricing route */}
           <Route path="/about" element={<About />} /> {/* Add About route */}
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginV2 />} />
           <Route path="/register" element={<Register />} />
           <Route
             path="/dashboard"
