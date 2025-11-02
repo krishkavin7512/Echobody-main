@@ -27,8 +27,10 @@ export const Login = () => {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
+        const user = { id: data.userId, name: data.name, email: data.email };
+        localStorage.setItem("user", JSON.stringify(user));
         toast.success("Login successful!");
-        navigate("/sample-dashboard");
+        navigate("/dashboard");
       } else {
         const errorData = await response.json();
         toast.error(errorData.message || "Invalid credentials. Please try again.");

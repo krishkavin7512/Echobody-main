@@ -3,8 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Dumbbell, Utensils, Heart, Zap, Flame, TrendingUp, Award } from "lucide-react";
 import Layout from "@/components/Layout";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
+  const [user, setUser] = useState({ name: "" });
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   // Mock data - replace with API calls
   const echoScore = 82;
   const scoreBreakdown = [
@@ -35,6 +45,7 @@ const Dashboard = () => {
 
   return (
     <Layout title="Dashboard">
+      <h2 className="text-3xl font-bold tracking-tight mb-4">Welcome back, {user.name}!</h2>
       <div className="space-y-6">
         {/* Row 1: Echo Score & Quick Actions */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
