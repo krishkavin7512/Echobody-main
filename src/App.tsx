@@ -9,7 +9,7 @@ import DashboardV2 from "./pages/DashboardV2"; // Import DashboardV2
 import WorkoutsV2 from "./pages/WorkoutsV2";
 import NutritionV2 from "./pages/NutritionV2";
 import MoodV2 from "./pages/MoodV2";
-import Progress from "./pages/Progress";
+import ProgressV2 from "./pages/ProgressV2";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
@@ -51,7 +51,7 @@ const App = () => (
           />
           <Route
             path="/progress"
-            element={<ProtectedRoute><Layout><Progress /></Layout></ProtectedRoute>}
+            element={<ProtectedRoute><Layout><ProgressV2 /></Layout></ProtectedRoute>}
           />
           <Route
             path="/profile"
