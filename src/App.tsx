@@ -8,7 +8,7 @@ import { Register } from "./pages/Register";
 import DashboardV2 from "./pages/DashboardV2"; // Import DashboardV2
 import WorkoutsV2 from "./pages/WorkoutsV2";
 import NutritionV2 from "./pages/NutritionV2";
-import Mood from "./pages/Mood";
+import MoodV2 from "./pages/MoodV2";
 import Progress from "./pages/Progress";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -47,7 +47,7 @@ const App = () => (
           />
           <Route
             path="/mood"
-            element={<ProtectedRoute><Layout><Mood /></Layout></ProtectedRoute>}
+            element={<ProtectedRoute><Layout><MoodV2 /></Layout></ProtectedRoute>}
           />
           <Route
             path="/progress"

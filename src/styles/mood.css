@@ -1,0 +1,11 @@
+
+.mood-neon {
+  box-shadow: 0 8px 24px rgba(0,255,220,0.06);
+  border: 1px solid rgba(0,255,220,0.06);
+}
+ @keyframes neonPulse {
+  0% { box-shadow: 0 6px 18px rgba(0,255,220,0.04); }
+  50% { box-shadow: 0 12px 40px rgba(0,255,220,0.08); }
+  100% { box-shadow: 0 6px 18px rgba(0,255,220,0.04); }
+}
+.mood-animated { animation: neonPulse 4s ease-in-out infinite; }
