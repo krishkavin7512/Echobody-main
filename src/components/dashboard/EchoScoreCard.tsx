@@ -1,63 +1,47 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+
+const data = [{ name: "Score", value: 82 }];
+const COLORS = ["#3b82f6", "#e5e7eb"];
 
 export function EchoScoreCard() {
   return (
-    <Card className="bg-gradient-to-br from-gray-900 to-black text-white relative overflow-hidden h-full">
+    <Card className="h-full transition-shadow duration-300 hover:shadow-xl">
       <CardHeader>
-        <CardTitle>Your Echo Score</CardTitle>
+        <CardTitle className="text-2xl font-bold">Your EchoScore</CardTitle>
+        <CardDescription>A holistic measure of your well-being.</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col items-center justify-center gap-6">
+      <CardContent className="flex flex-col items-center justify-center gap-6 md:flex-row">
         <div className="relative h-48 w-48">
-          <svg className="absolute inset-0" viewBox="0 0 100 100">
-            <circle
-              className="stroke-current text-gray-700/50"
-              strokeWidth="4"
-              cx="50"
-              cy="50"
-              r="40"
-              fill="transparent"
-            />
-            <circle
-              className="stroke-current text-cyan-400 transition-all duration-1000 ease-in-out"
-              strokeWidth="4"
-              strokeDasharray="251.2"
-              strokeDashoffset={251.2 - (251.2 * 82) / 100}
-              cx="50"
-              cy="50"
-              r="40"
-              fill="transparent"
-              strokeLinecap="round"
-              transform="rotate(-90 50 50)"
-            />
-          </svg>
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={[{ value: 82 }, { value: 18 }]}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                startAngle={90}
+                endAngle={450}
+                paddingAngle={0}
+                dataKey="value"
+                stroke="none"
+              >
+                <Cell fill={COLORS[0]} />
+                <Cell fill={COLORS[1]} />
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="text-5xl font-bold">82</span>
-            <span className="text-sm text-gray-400">Excellent</span>
+            <span className="text-4xl font-bold text-primary">82</span>
+            <span className="text-sm text-muted-foreground">Excellent</span>
           </div>
         </div>
-        <div className="w-full space-y-4">
-          <div>
-            <div className="mb-1 flex justify-between text-sm font-medium">
-              <span>Workout Consistency</span>
-              <span>75%</span>
-            </div>
-            <Progress value={75} className="h-2 bg-gray-700" />
-          </div>
-          <div>
-            <div className="mb-1 flex justify-between text-sm font-medium">
-              <span>Nutrition Goal</span>
-              <span>90%</span>
-            </div>
-            <Progress value={90} className="h-2 bg-gray-700" />
-          </div>
-          <div>
-            <div className="mb-1 flex justify-between text-sm font-medium">
-              <span>Mindfulness</span>
-              <span>80%</span>
-            </div>
-            <Progress value={80} className="h-2 bg-gray-700" />
-          </div>
+        <div className="text-center md:text-left">
+          <h3 className="text-lg font-semibold">Keep up the great work!</h3>
+          <p className="text-muted-foreground">
+            Your score is based on your recent activity, nutrition, and mood logs.
+          </p>
         </div>
       </CardContent>
     </Card>

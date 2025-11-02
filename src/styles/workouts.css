@@ -1,0 +1,11 @@
+
+.workout-neon {
+  box-shadow: 0 6px 24px rgba(0,255,220,0.06), 0 2px 6px rgba(150,70,255,0.04);
+  border: 1px solid rgba(0,255,220,0.06);
+}
+ @keyframes neonPulse {
+  0% { box-shadow: 0 6px 18px rgba(0,255,220,0.04); }
+  50% { box-shadow: 0 10px 36px rgba(0,255,220,0.08); }
+  100% { box-shadow: 0 6px 18px rgba(0,255,220,0.04); }
+}
+.workout-animated-accent { animation: neonPulse 4s ease-in-out infinite; }

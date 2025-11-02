@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import Workouts from "./pages/Workouts";
-import Nutrition from "./pages/Nutrition";
+import DashboardV2 from "./pages/DashboardV2"; // Import DashboardV2
+import WorkoutsV2 from "./pages/WorkoutsV2";
+import NutritionV2 from "./pages/NutritionV2";
 import Mood from "./pages/Mood";
 import Progress from "./pages/Progress";
 import Profile from "./pages/Profile";
@@ -15,8 +15,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage"; // Import HomePage
 import Pricing from "./pages/Pricing"; // Import Pricing
-
 import About from "./pages/About"; // Import About
+import Layout from "./components/Layout"; // Import Layout
 
 const queryClient = new QueryClient();
 
@@ -33,12 +33,30 @@ const App = () => (
           <Route path="/about" element={<About />} /> {/* Add About route */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/workouts" element={<ProtectedRoute><Workouts /></ProtectedRoute>} />
-          <Route path="/nutrition" element={<ProtectedRoute><Nutrition /></ProtectedRoute>} />
-          <Route path="/mood" element={<ProtectedRoute><Mood /></ProtectedRoute>} />
-          <Route path="/progress" element={<ProtectedRoute><Progress /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route
+            path="/dashboard"
+            element={<ProtectedRoute><Layout><DashboardV2 /></Layout></ProtectedRoute>}
+          />
+          <Route
+            path="/workouts"
+            element={<ProtectedRoute><Layout><WorkoutsV2 /></Layout></ProtectedRoute>}
+          />
+          <Route
+            path="/nutrition"
+            element={<ProtectedRoute><Layout><NutritionV2 /></Layout></ProtectedRoute>}
+          />
+          <Route
+            path="/mood"
+            element={<ProtectedRoute><Layout><Mood /></Layout></ProtectedRoute>}
+          />
+          <Route
+            path="/progress"
+            element={<ProtectedRoute><Layout><Progress /></Layout></ProtectedRoute>}
+          />
+          <Route
+            path="/profile"
+            element={<ProtectedRoute><Layout><Profile /></Layout></ProtectedRoute>}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
