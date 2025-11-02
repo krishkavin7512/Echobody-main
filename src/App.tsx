@@ -10,7 +10,7 @@ import WorkoutsV2 from "./pages/WorkoutsV2";
 import NutritionV2 from "./pages/NutritionV2";
 import MoodV2 from "./pages/MoodV2";
 import ProgressV2 from "./pages/ProgressV2";
-import Profile from "./pages/Profile";
+import ProfileV2 from "./pages/ProfileV2";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage"; // Import HomePage
@@ -55,7 +55,7 @@ const App = () => (
           />
           <Route
             path="/profile"
-            element={<ProtectedRoute><Layout><Profile /></Layout></ProtectedRoute>}
+            element={<ProtectedRoute><Layout><ProfileV2 /></Layout></ProtectedRoute>}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
