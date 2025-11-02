@@ -1,6 +1,7 @@
 com\echobody\dto\LoginRequest.class
 com\echobody\EchobodyApplication.class
 com\echobody\controller\AuthController.class
+com\echobody\dto\UserDto.class
 com\echobody\WebConfig.class
 com\echobody\security\JwtAuthenticationEntryPoint.class
 com\echobody\model\User.class

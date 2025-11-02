@@ -15,10 +15,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage"; // Import HomePage
 import Pricing from "./pages/Pricing"; // Import Pricing
-import SampleDashboard from "./pages/SampleDashboard"; // Import SampleDashboard
-import SampleLogWorkout from "./pages/SampleLogWorkout"; // Import SampleLogWorkout
-import SampleLogMeal from "./pages/SampleLogMeal"; // Import SampleLogMeal
-import SampleLogMood from "./pages/SampleLogMood"; // Import SampleLogMood
+
 import About from "./pages/About"; // Import About
 
 const queryClient = new QueryClient();
@@ -34,10 +31,6 @@ const App = () => (
           <Route path="/home" element={<HomePage />} /> {/* Add /home route */}
           <Route path="/pricing" element={<Pricing />} /> {/* Add Pricing route */}
           <Route path="/about" element={<About />} /> {/* Add About route */}
-          <Route path="/sample-dashboard" element={<SampleDashboard />} /> {/* Add SampleDashboard route */}
-          <Route path="/sample-log-workout" element={<SampleLogWorkout />} /> {/* Add SampleLogWorkout route */}
-          <Route path="/sample-log-meal" element={<SampleLogMeal />} /> {/* Add SampleLogMeal route */}
-          <Route path="/sample-log-mood" element={<SampleLogMood />} /> {/* Add SampleLogMood route */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

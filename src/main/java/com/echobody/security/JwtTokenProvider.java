@@ -12,8 +12,11 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    // ✅ Secure cryptographic key (auto-generated)
-    private final SecretKey jwtSecret = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    // ✅ Fixed, secure 512-bit key (won't regenerate on restart)
+    private static final SecretKey jwtSecret = Keys.hmacShaKeyFor(
+        "ThisIsASuperSecretAndLongEnoughKeyToSignJWTsForEchobodyApp_ChangeThisToAnythingSecure1234567890"
+            .getBytes()
+    );
 
     // Token expiry: 24 hours
     private final long jwtExpirationInMs = 86400000L;
@@ -29,7 +32,7 @@ public class JwtTokenProvider {
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(jwtSecret)
+                .signWith(jwtSecret, SignatureAlgorithm.HS512)
                 .compact();
     }
 

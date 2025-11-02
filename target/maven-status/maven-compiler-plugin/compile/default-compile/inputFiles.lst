@@ -3,6 +3,7 @@ K:\Echobody-main\src\main\java\com\echobody\controller\AuthController.java
 K:\Echobody-main\src\main\java\com\echobody\dto\AuthResponse.java
 K:\Echobody-main\src\main\java\com\echobody\dto\LoginRequest.java
 K:\Echobody-main\src\main\java\com\echobody\dto\RegisterRequest.java
+K:\Echobody-main\src\main\java\com\echobody\dto\UserDto.java
 K:\Echobody-main\src\main\java\com\echobody\EchobodyApplication.java
 K:\Echobody-main\src\main\java\com\echobody\model\User.java
 K:\Echobody-main\src\main\java\com\echobody\repository\UserRepository.java
