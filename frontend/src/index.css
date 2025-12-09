@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  EchoBody Premium Theme System
+  Base: Deep Black / Void
+  Accents: Neon Cyan (#00ffe1) & Electric Purple (#bd00ff)
+*/
+
+@layer base {
+  :root {
+    /* DEFAULT DARK MODE (Forced) */
+    --background: 240 10% 3.9%; /* #09090b - Zinc 950 (Deep dark, almost black) */
+    --foreground: 0 0% 98%;     /* #fafafa */
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* NEON CYAN PRIMARY */
+    --primary: 173 100% 50%; /* #00ffe1 */
+    --primary-foreground: 240 10% 3.9%;
+
+    /* ELECTRIC PURPLE SECONDARY */
+    --secondary: 270 100% 60%; /* #9d00ff */
+    --secondary-foreground: 0 0% 98%;
+
+    /* NEON PINK ACCENT */
+    --accent: 320 100% 60%; /* #ff00cc */
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 173 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom Glass & Gradient Vars */
+    --glass-bg: 240 10% 3.9% / 0.7;
+    --glass-border: 240 3.7% 15.9% / 0.5;
+    --shadow-neon: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  /* Force dark mode styles even without .dark class if needed, or refine .dark */
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 173 100% 50%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 320 100% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 173 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    /* Subtle mesh gradient background */
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 100% 100%, hsl(var(--secondary) / 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  /* Premium Glass Card */
+  .glass-card {
+    @apply bg-background/60 backdrop-blur-xl border border-white/10 shadow-lg;
+  }
+  
+  /* Neon Glow Effect */
+  .neon-glow {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  /* Scrollbar Polish */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Animation Utilities */
+  .animate-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

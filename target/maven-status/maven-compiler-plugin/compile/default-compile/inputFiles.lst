@@ -1,14 +1,14 @@
-K:\Echobody-main\src\main\java\com\echobody\config\SecurityConfig.java
-K:\Echobody-main\src\main\java\com\echobody\controller\AuthController.java
-K:\Echobody-main\src\main\java\com\echobody\dto\AuthResponse.java
-K:\Echobody-main\src\main\java\com\echobody\dto\LoginRequest.java
-K:\Echobody-main\src\main\java\com\echobody\dto\RegisterRequest.java
-K:\Echobody-main\src\main\java\com\echobody\dto\UserDto.java
-K:\Echobody-main\src\main\java\com\echobody\EchobodyApplication.java
-K:\Echobody-main\src\main\java\com\echobody\model\User.java
-K:\Echobody-main\src\main\java\com\echobody\repository\UserRepository.java
-K:\Echobody-main\src\main\java\com\echobody\security\JwtAuthenticationEntryPoint.java
-K:\Echobody-main\src\main\java\com\echobody\security\JwtAuthenticationFilter.java
-K:\Echobody-main\src\main\java\com\echobody\security\JwtTokenProvider.java
-K:\Echobody-main\src\main\java\com\echobody\service\CustomUserDetailsService.java
-K:\Echobody-main\src\main\java\com\echobody\WebConfig.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\config\SecurityConfig.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\controller\AuthController.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\dto\AuthResponse.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\dto\LoginRequest.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\dto\RegisterRequest.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\dto\UserDto.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\EchobodyApplication.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\model\User.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\repository\UserRepository.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\security\JwtAuthenticationEntryPoint.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\security\JwtAuthenticationFilter.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\security\JwtTokenProvider.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\service\CustomUserDetailsService.java
+K:\EchoBody Main\Echobody-main\src\main\java\com\echobody\WebConfig.java

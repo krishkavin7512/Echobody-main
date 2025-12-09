@@ -1,0 +1,24 @@
+package com.echobody.model;
+
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Data
+@Document(collection = "meals")
+public class Meal {
+    @Id
+    private String id;
+    private String userId;
+    private String title;
+    private String shortDesc;
+    private int calories;
+    private int protein;
+    private int carbs;
+    private int fat;
+    private String type; // breakfast, lunch, dinner, snack
+    private String notes;
+    private LocalDateTime dateTime;
+}

@@ -1,0 +1,11 @@
+package com.echobody.repository;
+
+import com.echobody.model.Workout;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import java.util.List;
+
+public interface WorkoutRepository extends MongoRepository<Workout, String> {
+    List<Workout> findByUserId(String userId);
+
+    List<Workout> findByUserIdOrderByDateDesc(String userId);
+}
